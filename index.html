@@ -171,34 +171,27 @@
     .level-pip { width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
     .level-pip.on { background: var(--accent); }
 
-    /* PROJECTS - CAMBIOS AQUÍ */
+    /* PROJECTS */
     #projects { background: var(--bg); }
     .projects-list { display: flex; flex-direction: column; gap: 1.5rem; }
     .project-card {
       background: var(--white); border: 1px solid var(--border);
       border-radius: 12px; display: grid;
-      grid-template-columns: 240px 56px 1fr auto; /* Agregamos columna para imagen */
-      align-items: stretch; gap: 0; padding: 0; /* Quitamos padding original para la imagen */
-      overflow: hidden;
+      grid-template-columns: 280px 56px 1fr auto;
+      align-items: stretch; gap: 0; overflow: hidden;
       transition: transform .2s, box-shadow .2s, border-color .2s;
     }
     .project-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,.07); border-color: var(--accent); }
     
-    .project-img-wrapper {
-      width: 100%; height: 100%; overflow: hidden; background: #eee;
-    }
-    .project-img-wrapper img {
-      width: 100%; height: 100%; object-fit: cover;
-      transition: transform 0.6s ease;
-    }
-    .project-card:hover .project-img-wrapper img { transform: scale(1.1); }
+    .project-img-container { width: 100%; height: 100%; min-height: 200px; background: #eee; overflow: hidden; }
+    .project-img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+    .project-card:hover img { transform: scale(1.05); }
 
     .project-num {
       font-family: 'Fraunces', serif; font-size: 2.4rem; font-weight: 900;
-      color: var(--border); line-height: 1; letter-spacing: -.03em; 
-      padding: 2rem 0 0 1.8rem; /* Ajuste de padding */
+      color: var(--border); line-height: 1; letter-spacing: -.03em; padding: 2rem 0 0 1.5rem;
     }
-    .project-body { padding: 2rem 1.8rem 2rem 0; } /* Ajuste de padding */
+    .project-content { padding: 2rem 1.5rem 2rem 0; }
     .project-title { font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 700; color: var(--ink); margin-bottom: .45rem; line-height: 1.2; }
     .project-desc { font-size: .92rem; color: var(--ink-2); line-height: 1.7; margin-bottom: 1rem; }
     .tags { display: flex; flex-wrap: wrap; gap: .45rem; }
@@ -207,10 +200,7 @@
     .tag-orange { background: var(--accent-2lt); color: var(--accent-2); }
     .tag-yellow { background: #fef9c3; color: #92400e; }
     
-    .project-links { 
-      display: flex; flex-direction: column; gap: .7rem; align-items: flex-end; 
-      padding: 2.3rem 2.2rem 0 0; white-space: nowrap; 
-    }
+    .project-links { display: flex; flex-direction: column; gap: .7rem; align-items: flex-end; padding: 2.2rem 2.2rem 0 0; white-space: nowrap; }
     .project-link {
       font-size: .78rem; font-weight: 600; color: var(--ink-3);
       text-decoration: none; display: flex; align-items: center; gap: .3rem; transition: color .18s;
@@ -297,10 +287,9 @@
       #hero { grid-template-columns: 1fr; padding: 80px 1.5rem 3rem; }
       .hero-visual { display: none; }
       section { padding: 4rem 1.5rem; }
-      .project-card { grid-template-columns: 1fr; gap: 0; } /* Ajuste responsive card */
-      .project-img-wrapper { height: 180px; }
-      .project-num { padding: 1.5rem 1.5rem 0; }
-      .project-body { padding: 0.5rem 1.5rem 1.5rem; }
+      .project-card { grid-template-columns: 1fr; gap: 0; }
+      .project-num { padding: 1.5rem; }
+      .project-content { padding: 0 1.5rem 1.5rem; }
       .project-links { flex-direction: row; padding: 0 1.5rem 1.5rem; align-items: center; }
       .about-layout { grid-template-columns: 1fr; gap: 3rem; }
       footer { flex-direction: column; gap: .5rem; text-align: center; }
@@ -415,11 +404,11 @@
   <div class="projects-list">
 
     <div class="project-card reveal">
-      <div class="project-img-wrapper">
-        <img src="https://images.unsplash.com/photo-1551288049-bbbda536339a?q=80&w=2070&auto=format&fit=crop" alt="HR Analytics">
+      <div class="project-img-container">
+        <img src="https://images.unsplash.com/photo-1554252116-304914355fb1?q=80&w=2070&auto=format&fit=crop" alt="HR Analytics">
       </div>
       <div class="project-num">01</div>
-      <div class="project-body">
+      <div class="project-content">
         <div class="project-title">Satisfacción Laboral — Dashboard HR</div>
         <p class="project-desc">Análisis de los factores que influyen en la satisfacción de 1.471 empleados. Modelo estrella con 11 tablas de dimensiones, medidas DAX y dashboard interactivo con 6 solapas. Tasa de rotación anual del 23,74% identificada como KPI crítico.</p>
         <div class="tags">
@@ -442,11 +431,11 @@
     </div>
 
     <div class="project-card reveal">
-      <div class="project-img-wrapper">
+      <div class="project-img-container">
         <img src="https://images.unsplash.com/photo-1622483767028-3f66f344507c?q=80&w=2070&auto=format&fit=crop" alt="Coca Cola Analysis">
       </div>
       <div class="project-num">02</div>
-      <div class="project-body">
+      <div class="project-content">
         <div class="project-title">Coca-Cola USA — Ventas, Mix y Logística</div>
         <p class="project-desc">Dashboard comercial sobre ~4.500 transacciones (2022–2024) que cruza variables geográficas, nutricionales y logísticas. Incluye 10 hipótesis estructuradas con metodología SMART y KPIs de margen operativo, entrega rápida y mix sin azúcar.</p>
         <div class="tags">
@@ -469,11 +458,11 @@
     </div>
 
     <div class="project-card reveal">
-      <div class="project-img-wrapper">
+      <div class="project-img-container">
         <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop" alt="Nike Analysis">
       </div>
       <div class="project-num">03</div>
-      <div class="project-body">
+      <div class="project-content">
         <div class="project-title">Nike USA — Análisis Comercial y Rentabilidad</div>
         <p class="project-desc">Dashboard de ventas Nike 2024 con DAX avanzado: tabla calendario con estaciones y campañas, ranking Top-N por marca, tooltips narrativos dinámicos y segmentación de margen alto/medio/bajo. Facturación total $4,62M con crecimiento YoY del 25,57%.</p>
         <div class="tags">
@@ -489,6 +478,32 @@
           GitHub
         </a>
         <a href="https://raw.githubusercontent.com/tomasgrillanini/Proyecto_Nike/main/informe%20general.png" class="project-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Dashboard
+        </a>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-img-container">
+        <img src="https://images.unsplash.com/photo-1511746315387-c4a76990fdce?q=80&w=2070&auto=format&fit=crop" alt="Adidas Performance Retail">
+      </div>
+      <div class="project-num">04</div>
+      <div class="project-content">
+        <div class="project-title">Performance Retail: Adidas</div>
+        <p class="project-desc">Transformación de datos transaccionales en una herramienta de BI para identificar métodos de venta efectivos y optimización de márgenes operativos.</p>
+        <div class="tags">
+          <span class="tag tag-orange">Power BI</span>
+          <span class="tag tag-orange">DAX</span>
+          <span class="tag tag-green">UX Design</span>
+        </div>
+      </div>
+      <div class="project-links">
+        <a href="#" class="project-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+        <a href="#" class="project-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           Dashboard
         </a>
@@ -539,7 +554,7 @@
     </div>
 
     <div class="stats-grid reveal">
-      <div class="stat-box"><div class="stat-num">3+</div><div class="stat-label">Proyectos completados</div></div>
+      <div class="stat-box"><div class="stat-num">4+</div><div class="stat-label">Proyectos completados</div></div>
       <div class="stat-box"><div class="stat-num">4</div><div class="stat-label">Herramientas dominadas</div></div>
       <div class="stat-box"><div class="stat-num">2025</div><div class="stat-label">Año de graduación</div></div>
       <div class="stat-box"><div class="stat-num">∞</div><div class="stat-label">Ganas de aprender</div></div>
@@ -580,7 +595,7 @@
   document.documentElement.classList.add("js-ready");
   const reveals = document.querySelectorAll(".reveal");
   const obs = new IntersectionObserver(entries => {
-    entries.forEach((e) => {
+    entries.forEach(e => {
       if (e.isIntersecting) e.target.classList.add("visible");
     });
   }, { threshold: 0.1 });
