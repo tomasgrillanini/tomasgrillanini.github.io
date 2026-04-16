@@ -31,7 +31,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* NAV */
+    /* NAV ORIGINAL */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       background: rgba(247,246,242,.93);
@@ -53,7 +53,7 @@
     }
     .nav-links a:hover { color: var(--accent); }
 
-    /* HERO */
+    /* HERO ORIGINAL */
     #hero {
       min-height: 100vh;
       display: grid; grid-template-columns: 1fr 1fr;
@@ -68,30 +68,20 @@
       font-size: .75rem; font-weight: 600; letter-spacing: .08em;
       text-transform: uppercase; padding: .35rem .9rem;
       border-radius: 100px; margin-bottom: 2rem;
-      animation: fadeUp .5s ease both;
-    }
-    .hero-badge::before {
-      content: ''; width: 7px; height: 7px; border-radius: 50%;
-      background: var(--accent); animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%,100% { opacity:1; transform:scale(1); }
-      50% { opacity:.5; transform:scale(.8); }
     }
     h1 {
       font-family: 'Fraunces', serif;
       font-size: clamp(3.2rem, 5.5vw, 5.2rem);
       font-weight: 900; line-height: 1.0;
       letter-spacing: -.03em; color: var(--ink);
-      animation: fadeUp .5s .08s ease both;
     }
     h1 .line-accent { color: var(--accent); font-style: italic; }
     .hero-desc {
       font-size: 1.05rem; color: var(--ink-2);
       max-width: 440px; margin: 1.6rem 0 2.4rem; line-height: 1.75;
-      animation: fadeUp .5s .16s ease both;
     }
-    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp .5s .24s ease both; }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+    
     .btn {
       display: inline-block; padding: .72rem 1.8rem;
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -100,53 +90,13 @@
       transition: all .18s; cursor: pointer; border: none;
     }
     .btn-primary { background: var(--accent); color: #fff; }
-    .btn-primary:hover { background: #0a5449; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(15,107,92,.25); }
     .btn-ghost { background: var(--white); color: var(--ink); border: 1.5px solid var(--border); }
-    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
-    /* FOTO DE PERFIL PEQUEÑA */
-    .hero-photo {
-      margin-top: 2rem;
-      animation: fadeUp .5s .3s ease both;
-    }
+    .hero-photo { margin-top: 2rem; }
     .hero-photo img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--accent);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      width: 100px; height: 100px; border-radius: 50%;
+      object-fit: cover; border: 2px solid var(--accent);
     }
-
-    /* Hero visual card */
-    .hero-visual { animation: fadeUp .5s .3s ease both; }
-    .data-card {
-      background: var(--white); border: 1px solid var(--border);
-      border-radius: 12px; padding: 2rem;
-      box-shadow: 0 4px 32px rgba(0,0,0,.06);
-    }
-    .data-card-title {
-      font-size: .72rem; font-weight: 600; letter-spacing: .1em;
-      text-transform: uppercase; color: var(--ink-3);
-      margin-bottom: 1.6rem; padding-bottom: .8rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .stack-row {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: .75rem 0; border-bottom: 1px solid var(--border);
-    }
-    .stack-row:last-child { border-bottom: none; }
-    .stack-info { display: flex; align-items: center; gap: .8rem; }
-    .stack-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
-    .stack-name { font-size: .9rem; font-weight: 600; color: var(--ink); }
-    .stack-sub { font-size: .73rem; color: var(--ink-3); font-family: 'JetBrains Mono', monospace; }
-    .stack-bar-wrap { width: 100px; height: 5px; background: var(--border); border-radius: 10px; overflow: hidden; }
-    .stack-bar {
-      height: 100%; border-radius: 10px;
-      transform-origin: left;
-      animation: growBar 1.2s .6s ease forwards; transform: scaleX(0);
-    }
-    @keyframes growBar { to { transform: scaleX(1); } }
 
     /* SECTIONS */
     section { padding: 6rem 5vw; }
@@ -160,132 +110,84 @@
       font-weight: 900; letter-spacing: -.025em; line-height: 1.1;
       color: var(--ink); margin-bottom: .8rem;
     }
-    .section-sub {
-      font-size: 1rem; color: var(--ink-3);
-      max-width: 520px; margin-bottom: 3.5rem; line-height: 1.7;
-    }
 
-    /* SKILLS */
-    #skills { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; }
-    .skill-card {
-      background: var(--bg); border: 1px solid var(--border);
-      border-radius: 10px; padding: 1.6rem;
-      transition: transform .2s, box-shadow .2s, border-color .2s;
-    }
-    .skill-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.07); border-color: var(--accent); }
-    .skill-icon-wrap {
-      width: 42px; height: 42px; border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem; margin-bottom: 1rem;
-    }
-    .skill-title { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 700; color: var(--ink); margin-bottom: .4rem; }
-    .skill-tools { font-size: .8rem; color: var(--ink-3); line-height: 1.6; }
-    .skill-level { display: flex; align-items: center; gap: .4rem; margin-top: 1rem; }
-    .level-pip { width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
-    .level-pip.on { background: var(--accent); }
-
-    /* PROJECTS */
+    /* PROYECTOS CON IMAGEN ANIMADA */
     #projects { background: var(--bg); }
-    .projects-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .projects-list { display: flex; flex-direction: column; gap: 2rem; }
+    
     .project-card {
       background: var(--white); border: 1px solid var(--border);
-      border-radius: 12px; display: grid;
-      grid-template-columns: 56px 1fr auto;
-      align-items: start; gap: 1.8rem; padding: 2rem 2.2rem;
-      transition: transform .2s, box-shadow .2s, border-color .2s;
+      border-radius: 16px; display: grid;
+      grid-template-columns: 40% 1fr; /* Dividimos la tarjeta: 40% imagen, 60% texto */
+      overflow: hidden;
+      transition: transform .3s ease, box-shadow .3s ease;
     }
-    .project-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,.07); border-color: var(--accent); }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    /* Contenedor de la imagen y animación */
+    .project-img-wrapper {
+      position: relative;
+      overflow: hidden;
+      background: #f0f0f0;
+    }
+    .project-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+    }
+    .project-card:hover .project-img-wrapper img {
+      transform: scale(1.08);
+    }
+
+    .project-content {
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
     .project-num {
-      font-family: 'Fraunces', serif; font-size: 2.4rem; font-weight: 900;
-      color: var(--border); line-height: 1; letter-spacing: -.03em; padding-top: .2rem;
+      font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 900;
+      color: var(--border); margin-bottom: 0.5rem;
     }
-    .project-title { font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 700; color: var(--ink); margin-bottom: .45rem; line-height: 1.2; }
-    .project-desc { font-size: .92rem; color: var(--ink-2); line-height: 1.7; margin-bottom: 1rem; }
-    .tags { display: flex; flex-wrap: wrap; gap: .45rem; }
-    .tag { font-size: .7rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; padding: .22rem .65rem; border-radius: 4px; }
+    .project-title { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 700; color: var(--ink); margin-bottom: .8rem; }
+    .project-desc { font-size: .95rem; color: var(--ink-2); line-height: 1.7; margin-bottom: 1.5rem; }
+    
+    .tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.5rem; }
+    .tag { font-size: .7rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; padding: .3rem .7rem; border-radius: 4px; }
     .tag-green { background: var(--accent-lt); color: var(--accent); }
     .tag-orange { background: var(--accent-2lt); color: var(--accent-2); }
-    .tag-yellow { background: #fef9c3; color: #92400e; }
-    .project-links { display: flex; flex-direction: column; gap: .7rem; align-items: flex-end; padding-top: .3rem; white-space: nowrap; }
+    
+    .project-links { display: flex; gap: 1.2rem; margin-top: auto; }
     .project-link {
-      font-size: .78rem; font-weight: 600; color: var(--ink-3);
-      text-decoration: none; display: flex; align-items: center; gap: .3rem; transition: color .18s;
+      font-size: .85rem; font-weight: 600; color: var(--ink-3);
+      text-decoration: none; display: flex; align-items: center; gap: .4rem;
+      transition: color .2s;
     }
     .project-link:hover { color: var(--accent); }
-    .project-link svg { width: 14px; height: 14px; }
 
-    /* ABOUT */
-    #about { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .about-layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem; align-items: start; }
-    .about-text h2 { margin-bottom: 1.4rem; }
-    .about-text p { font-size: .97rem; color: var(--ink-2); line-height: 1.8; margin-bottom: 1.1rem; }
-    .about-text strong { color: var(--ink); font-weight: 600; }
-    .edu-block { margin-top: 2rem; display: flex; flex-direction: column; gap: .8rem; }
-    .edu-item {
-      display: flex; align-items: flex-start; gap: 1rem;
-      padding: 1.1rem 1.2rem; background: var(--bg);
-      border: 1px solid var(--border); border-radius: 8px;
-    }
-    .edu-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); margin-top: .35rem; flex-shrink: 0; }
-    .edu-title { font-size: .93rem; font-weight: 600; color: var(--ink); }
-    .edu-sub { font-size: .8rem; color: var(--ink-3); margin-top: .15rem; }
-    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .stat-box { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.6rem; }
-    .stat-num { font-family: 'Fraunces', serif; font-size: 2.6rem; font-weight: 900; color: var(--accent); line-height: 1; letter-spacing: -.03em; }
-    .stat-label { font-size: .78rem; font-weight: 500; color: var(--ink-3); margin-top: .4rem; line-height: 1.4; }
-
-    /* CONTACT */
-    #contact { background: var(--bg); }
-    .contact-inner { max-width: 600px; }
-    .contact-inner .section-sub { margin-bottom: 2.5rem; }
+    /* CONTACTO ORIGINAL */
     .contact-row {
       display: flex; align-items: center; gap: 1rem;
       padding: 1.1rem 1.4rem; background: var(--white);
       border: 1px solid var(--border); border-radius: 8px;
       margin-bottom: .7rem; text-decoration: none; color: var(--ink);
-      transition: border-color .18s, transform .18s, box-shadow .18s;
     }
-    .contact-row:hover { border-color: var(--accent); transform: translateX(4px); box-shadow: 0 4px 16px rgba(0,0,0,.06); }
-    .contact-icon {
-      width: 38px; height: 38px; border-radius: 8px;
-      background: var(--accent-lt); color: var(--accent);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem; flex-shrink: 0;
-    }
-    .contact-label { font-size: .93rem; font-weight: 600; }
-    .contact-val { font-size: .82rem; color: var(--ink-3); font-family: 'JetBrains Mono', monospace; }
-    .contact-arrow { margin-left: auto; color: var(--ink-3); font-size: 1rem; transition: transform .18s, color .18s; }
-    .contact-row:hover .contact-arrow { transform: translateX(3px); color: var(--accent); }
 
-    /* FOOTER */
     footer {
       padding: 1.8rem 5vw; border-top: 1px solid var(--border);
       display: flex; justify-content: space-between; align-items: center;
       font-size: .8rem; color: var(--ink-3);
     }
 
-    /* ANIMATIONS */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .reveal { opacity: 1; transform: translateY(0); transition: opacity .6s ease, transform .6s ease; }
-    .js-ready .reveal { opacity: 0; transform: translateY(22px); }
-    .js-ready .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    /* RESPONSIVE */
-    @media (max-width: 860px) {
-      nav { padding: 0 1.5rem; }
-      .nav-links { display: none; }
-      #hero { grid-template-columns: 1fr; padding: 80px 1.5rem 3rem; }
-      .hero-visual { display: none; }
-      section { padding: 4rem 1.5rem; }
-      .project-card { grid-template-columns: 1fr; gap: 1rem; }
-      .project-links { flex-direction: row; }
-      .about-layout { grid-template-columns: 1fr; gap: 3rem; }
-      footer { flex-direction: column; gap: .5rem; text-align: center; }
+    /* Responsive */
+    @media (max-width: 900px) {
+      .project-card { grid-template-columns: 1fr; }
+      .project-img-wrapper { height: 220px; }
+      #hero { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -294,9 +196,7 @@
 <nav>
   <a class="nav-logo" href="#">Tomás Grillanini<span>.</span></a>
   <ul class="nav-links">
-    <li><a href="#skills">Stack</a></li>
     <li><a href="#projects">Proyectos</a></li>
-    <li><a href="#about">Sobre mí</a></li>
     <li><a href="#contact">Contacto</a></li>
   </ul>
 </nav>
@@ -306,8 +206,7 @@
     <div class="hero-badge">Disponible · Analista de Datos</div>
     <h1>Del dato<br/>al <span class="line-accent">insight.</span></h1>
     <p class="hero-desc">
-      Transformo datos complejos en respuestas claras. Trabajo con Python, SQL,
-      Power BI y Excel para encontrar lo que los números están tratando de decir.
+      Tomás Grillanini. Transformo datos complejos en respuestas claras mediante Python, SQL y Power BI.
     </p>
     <div class="hero-ctas">
       <a href="#projects" class="btn btn-primary">Ver proyectos</a>
@@ -317,272 +216,92 @@
       <img src="tu-foto.jpg" alt="Tomás Grillanini">
     </div>
   </div>
-
-  <div class="hero-visual">
-    <div class="data-card">
-      <div class="data-card-title">Stack técnico · nivel de dominio</div>
-      <div class="stack-row">
-        <div class="stack-info">
-          <div class="stack-dot" style="background:#3b82f6"></div>
-          <div><div class="stack-name">Python</div><div class="stack-sub">pandas · numpy · seaborn</div></div>
-        </div>
-        <div class="stack-bar-wrap"><div class="stack-bar" style="background:#3b82f6;width:88%"></div></div>
-      </div>
-      <div class="stack-row">
-        <div class="stack-info">
-          <div class="stack-dot" style="background:#0f6b5c"></div>
-          <div><div class="stack-name">SQL</div><div class="stack-sub">PostgreSQL · BigQuery · CTEs</div></div>
-        </div>
-        <div class="stack-bar-wrap"><div class="stack-bar" style="background:#0f6b5c;width:90%"></div></div>
-      </div>
-      <div class="stack-row">
-        <div class="stack-info">
-          <div class="stack-dot" style="background:#f59e0b"></div>
-          <div><div class="stack-name">Power BI / Tableau</div><div class="stack-sub">DAX · dashboards · KPIs</div></div>
-        </div>
-        <div class="stack-bar-wrap"><div class="stack-bar" style="background:#f59e0b;width:82%"></div></div>
-      </div>
-      <div class="stack-row">
-        <div class="stack-info">
-          <div class="stack-dot" style="background:#22c55e"></div>
-          <div><div class="stack-name">Excel / Sheets</div><div class="stack-sub">tablas dinámicas · power pivot</div></div>
-        </div>
-        <div class="stack-bar-wrap"><div class="stack-bar" style="background:#22c55e;width:95%"></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="skills">
-  <p class="section-label reveal">Stack técnico</p>
-  <h2 class="reveal">Herramientas que domino.</h2>
-  <p class="section-sub reveal">Cuatro pilares que uso en cada proyecto, combinados según lo que el problema pida.</p>
-  <div class="skills-grid">
-    <div class="skill-card reveal">
-      <div class="skill-icon-wrap" style="background:#eff6ff">🐍</div>
-      <div class="skill-title">Python & Pandas</div>
-      <div class="skill-tools">Limpieza y transformación de datos, análisis exploratorio, visualización con Matplotlib y Seaborn.</div>
-      <div class="skill-level">
-        <div class="level-pip on"></div><div class="level-pip on"></div><div class="level-pip on"></div><div class="level-pip on"></div><div class="level-pip"></div>
-      </div>
-    </div>
-    <div class="skill-card reveal">
-      <div class="skill-icon-wrap" style="background:#f0fdf4">🗄️</div>
-      <div class="skill-title">SQL</div>
-      <div class="skill-tools">Consultas complejas, window functions, CTEs, joins. PostgreSQL, MySQL y BigQuery.</div>
-      <div class="skill-level">
-        <div class="level-pip on"></div><div class="level-pip on"></div><div class="level-pip on"></div><div class="level-pip on"></div><div class="level-pip on"></div>
-      </div>
-    </div>
-    <div class="skill-card reveal">
-      <div class="skill-icon-wrap" style="background:#fffbeb">📊</div>
-      <div class="skill-title">Power BI / Tableau</div>
-      <div class="skill-tools">Dashboards interactivos, DAX, Power Query, storytelling de datos y KPIs ejecutivos.</div>
-      <div class="skill-level">
-        <div class="level-pip on"></div><div class="level-pip on"></div><div class="level-pip on"></div><div class="level-pip on"></div><div class="level-pip"></div>
-      </div>
-    </div>
-    <div class="skill-card reveal">
-      <div class="skill-icon-wrap" style="background:#f0fdf4">📋</div>
-      <div class="skill-title">Excel & Sheets</div>
-      <div class="skill-tools">Tablas dinámicas, Power Pivot, fórmulas avanzadas, macros y validación de datos.</div>
-      <div class="skill-level">
-        <div class="level-pip on"></div><div class="level-pip on"></div><div class="level-pip on"></div><div class="level-pip on"></div><div class="level-pip on"></div>
-      </div>
-    </div>
-  </div>
 </section>
 
 <section id="projects">
-  <p class="section-label reveal">Portafolio</p>
-  <h2 class="reveal">Proyectos seleccionados.</h2>
-  <p class="section-sub reveal">Cada proyecto resuelve un problema real de datos, de principio a fin.</p>
+  <p class="section-label">Portafolio</p>
+  <h2>Proyectos seleccionados.</h2>
   <div class="projects-list">
 
-    <div class="project-card reveal">
-      <div class="project-num">01</div>
-      <div class="project-body">
+    <div class="project-card">
+      <div class="project-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop" alt="HR Analytics">
+      </div>
+      <div class="project-content">
+        <div class="project-num">01</div>
         <div class="project-title">Satisfacción Laboral — Dashboard HR</div>
-        <p class="project-desc">Análisis de los factores que influyen en la satisfacción de 1.471 empleados. Modelo estrella con 11 tablas de dimensiones, medidas DAX y dashboard interactivo con 6 solapas. Tasa de rotación anual del 23,74% identificada como KPI crítico.</p>
-        <div class="tags">
-          <span class="tag tag-orange">Power BI</span>
-          <span class="tag tag-orange">DAX</span>
-          <span class="tag tag-yellow">Excel</span>
-          <span class="tag tag-green">Power Query</span>
+        <p class="project-desc">Análisis de factores de retención y satisfacción para 1.471 empleados mediante Power BI y DAX.</p>
+        <div class="tags"><span class="tag tag-orange">Power BI</span><span class="tag tag-green">DAX</span></div>
+        <div class="project-links">
+          <a href="https://app.powerbi.com/view?r=eyJrIjoiNjFhMGNkYTAtMmRiMC00YTU4LWJmYWYtMjdiMGNiMTNiMWRiIiwidCI6IjViMGFiY2EyLWUwYjYtNGYwYS1iODc4LWE3YmM1Mjg4M2NhMCIsImMiOjR9" target="_blank" class="project-link">Ver Dashboard</a>
         </div>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/tomasgrillanini/Proyecto_Satisfaccion.Laboral.git" target="_blank" class="project-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          GitHub
-        </a>
-        <a href="https://app.powerbi.com/view?r=eyJrIjoiNjFhMGNkYTAtMmRiMC00YTU4LWJmYWYtMjdiMGNiMTNiMWRiIiwidCI6IjViMGFiY2EyLWUwYjYtNGYwYS1iODc4LWE3YmM1Mjg4M2NhMCIsImMiOjR9" target="_blank" class="project-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Dashboard
-        </a>
       </div>
     </div>
 
-    <div class="project-card reveal">
-      <div class="project-num">02</div>
-      <div class="project-body">
-        <div class="project-title">Coca-Cola USA — Ventas, Mix y Logística</div>
-        <p class="project-desc">Dashboard comercial sobre ~4.500 transacciones (2022–2024) que cruza variables geográficas, nutricionales y logísticas. Incluye 10 hipótesis estructuradas con metodología SMART y KPIs de margen operativo, entrega rápida y mix sin azúcar.</p>
-        <div class="tags">
-          <span class="tag tag-orange">Power BI</span>
-          <span class="tag tag-orange">DAX</span>
-          <span class="tag tag-yellow">Excel</span>
-          <span class="tag tag-green">Power Query</span>
-        </div>
+    <div class="project-card">
+      <div class="project-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1622483767028-3f66f344507c?q=80&w=2070&auto=format&fit=crop" alt="Coca Cola Analysis">
       </div>
-      <div class="project-links">
-        <a href="https://github.com/tomasgrillanini/Proyecto_Coca-cola.git" target="_blank" class="project-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          GitHub
-        </a>
-        <a href="https://app.powerbi.com/view?r=eyJrIjoiYTM1YjI4NjYtYmQxMS00ZjYwLTk4OTEtYjE2ZGIwYjA0YmFmIiwidCI6IjViMGFiY2EyLWUwYjYtNGYwYS1iODc4LWE3YmM1Mjg4M2NhMCIsImMiOjR9" target="_blank" class="project-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Dashboard
-        </a>
+      <div class="project-content">
+        <div class="project-num">02</div>
+        <div class="project-title">Coca-Cola USA — Ventas y Logística</div>
+        <p class="project-desc">Dashboard comercial que analiza rutas, eficiencia de entrega y mix de productos mediante ETL.</p>
+        <div class="tags"><span class="tag tag-orange">Power BI</span><span class="tag tag-green">ETL</span></div>
+        <div class="project-links">
+          <a href="https://app.powerbi.com/view?r=eyJrIjoiYTM1YjI4NjYtYmQxMS00ZjYwLTk4OTEtYjE2ZGIwYjA0YmFmIiwidCI6IjViMGFiY2EyLWUwYjYtNGYwYS1iODc4LWE3YmM1Mjg4M2NhMCIsImMiOjR9" target="_blank" class="project-link">Ver Dashboard</a>
+        </div>
       </div>
     </div>
 
-    <div class="project-card reveal">
-      <div class="project-num">03</div>
-      <div class="project-body">
-        <div class="project-title">Nike USA — Análisis Comercial y Rentabilidad</div>
-        <p class="project-desc">Dashboard de ventas Nike 2024 con DAX avanzado: tabla calendario con estaciones y campañas, ranking Top-N por marca, tooltips narrativos dinámicos y segmentación de margen alto/medio/bajo. Facturación total $4,62M con crecimiento YoY del 25,57%.</p>
-        <div class="tags">
-          <span class="tag tag-orange">Power BI</span>
-          <span class="tag tag-orange">DAX avanzado</span>
-          <span class="tag tag-yellow">Excel</span>
-          <span class="tag tag-green">Power Query</span>
-        </div>
+    <div class="project-card">
+      <div class="project-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop" alt="Nike Analysis">
       </div>
-      <div class="project-links">
-        <a href="https://github.com/tomasgrillanini/Proyecto_Nike.git" target="_blank" class="project-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          GitHub
-        </a>
-        <a href="https://app.powerbi.com/view?r=eyJrIjoiMDY4M2FhYzQtNTUyNi00ODMzLWIwMDctZWI4NjdlMzc3MTY1IiwidCI6IjViMGFiY2EyLWUwYjYtNGYwYS1iODc4LWE3YmM1Mjg4M2NhMCIsImMiOjR9" target="_blank" class="project-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Dashboard
-        </a>
+      <div class="project-content">
+        <div class="project-num">03</div>
+        <div class="project-title">Nike USA — Análisis Comercial</div>
+        <p class="project-desc">Optimización de márgenes y seguimiento de performance de inventario global con DAX avanzado.</p>
+        <div class="tags"><span class="tag tag-orange">Power BI</span><span class="tag tag-green">DAX</span></div>
+        <div class="project-links">
+          <a href="https://app.powerbi.com/view?r=eyJrIjoiMDY4M2FhYzQtNTUyNi00ODMzLWIwMDctZWI4NjdlMzc3MTY1IiwidCI6IjViMGFiY2EyLWUwYjYtNGYwYS1iODc4LWE3YmM1Mjg4M2NhMCIsImMiOjR9" target="_blank" class="project-link">Ver Dashboard</a>
+        </div>
       </div>
     </div>
 
-    <div class="project-card reveal">
-      <div class="project-num">04</div>
-      <div class="project-body">
+    <div class="project-card">
+      <div class="project-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1511746315387-c4a76990fdce?q=80&w=2070&auto=format&fit=crop" alt="Adidas Analysis">
+      </div>
+      <div class="project-content">
+        <div class="project-num">04</div>
         <div class="project-title">Adidas Retail — Estudio de Rentabilidad</div>
-        <p class="project-desc">Transformación de datos transaccionales en una herramienta de BI para identificar métodos de venta efectivos y cumplimiento de objetivos. Incluye comparativa de canales (Online, In-store, Outlet) y KPIs dinámicos.</p>
-        <div class="tags">
-          <span class="tag tag-orange">Power BI</span>
-          <span class="tag tag-orange">DAX</span>
-          <span class="tag tag-green">UX Design</span>
-        </div>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/tomasgrillanini/Proyecto-Adidas-PowerBI" target="_blank" class="project-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          GitHub
-        </a>
-        <a href="https://app.powerbi.com/view?r=eyJrIjoiNTc5M2FhYzQtNTUyNi00ODMzLWIwMDctZWI4NjdlMzc3MTY1IiwidCI6IjViMGFiY2EyLWUwYjYtNGYwYS1iODc4LWE3YmM1Mjg4M2NhMCIsImMiOjR9" target="_blank" class="project-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Dashboard
-        </a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section id="about">
-  <div class="about-layout">
-    <div class="about-text reveal">
-      <p class="section-label">Sobre mí</p>
-      <h2>Analista de datos con foco en resultados.</h2>
-      <p>
-        Me recibí como <strong>Data Analyst en Coderhouse</strong> en 2025 y complementé
-        mi formación con el curso de <strong>Python para análisis de datos en Educación IT</strong>.
-        Me entusiasma el momento en que los números dejan de ser ruido y se convierten en una respuesta concreta.
-      </p>
-      <p>
-        Trabajo con <strong>Python, SQL, Power BI y Excel</strong> según lo que el problema pida.
-        Me interesa especialmente la visualización y el storytelling con datos: creo que un buen gráfico puede cambiar una decisión.
-      </p>
-      <p>Estoy buscando mi primera experiencia en un equipo donde los datos tengan un rol central. ¿Hablamos?</p>
-      <div class="edu-block">
-        <div class="edu-item">
-          <div class="edu-dot"></div>
-          <div>
-            <div class="edu-title">Carrera de Data Analyst — Coderhouse</div>
-            <div class="edu-sub">Graduado 2025</div>
-          </div>
-        </div>
-        <div class="edu-item">
-          <div class="edu-dot"></div>
-          <div>
-            <div class="edu-title">Python para análisis de datos — Educación IT</div>
-            <div class="edu-sub">2025</div>
-          </div>
+        <p class="project-desc">Identificación de métodos de venta efectivos y cumplimiento de objetivos mediante análisis de canales.</p>
+        <div class="tags"><span class="tag tag-orange">Power BI</span><span class="tag tag-green">UX Design</span></div>
+        <div class="project-links">
+          <a href="https://app.powerbi.com/view?r=eyJrIjoiNTc5M2FhYzQtNTUyNi00ODMzLWIwMDctZWI4NjdlMzc3MTY1IiwidCI6IjViMGFiY2EyLWUwYjYtNGYwYS1iODc4LWE3YmM1Mjg4M2NhMCIsImMiOjR9" target="_blank" class="project-link">Ver Dashboard</a>
         </div>
       </div>
     </div>
 
-    <div class="stats-grid reveal">
-      <div class="stat-box"><div class="stat-num">3+</div><div class="stat-label">Proyectos completados</div></div>
-      <div class="stat-box"><div class="stat-num">4</div><div class="stat-label">Herramientas dominadas</div></div>
-      <div class="stat-box"><div class="stat-num">2025</div><div class="stat-label">Año de graduación</div></div>
-      <div class="stat-box"><div class="stat-num">∞</div><div class="stat-label">Ganas de aprender</div></div>
-    </div>
   </div>
 </section>
 
 <section id="contact">
   <div class="contact-inner">
-    <p class="section-label reveal">Contacto</p>
-    <h2 class="reveal">¿Trabajamos juntos?</h2>
-    <p class="section-sub reveal">Disponible para posiciones full-time, part-time y proyectos freelance.</p>
-
-    <a href="mailto:tomasgrillanini@gmail.com" class="contact-row reveal">
-      <div class="contact-icon">✉️</div>
-      <div><div class="contact-label">Email</div><div class="contact-val">tomasgrillanini@gmail.com</div></div>
-      <div class="contact-arrow">→</div>
+    <h2>¿Trabajamos juntos?</h2>
+    <a href="mailto:tomasgrillanini@gmail.com" class="contact-row">
+      <div class="contact-label">Email</div><div class="contact-val">tomasgrillanini@gmail.com</div>
     </a>
-    <a href="https://www.linkedin.com/in/tomasgrillanini" target="_blank" class="contact-row reveal">
-      <div class="contact-icon">💼</div>
-      <div><div class="contact-label">LinkedIn</div><div class="contact-val">linkedin.com/in/tomasgrillanini</div></div>
-      <div class="contact-arrow">→</div>
-    </a>
-    <a href="https://github.com/tomasgrillanini" target="_blank" class="contact-row reveal">
-      <div class="contact-icon">🐙</div>
-      <div><div class="contact-label">GitHub</div><div class="contact-val">github.com/tomasgrillanini</div></div>
-      <div class="contact-arrow">→</div>
+    <a href="https://github.com/tomasgrillanini" target="_blank" class="contact-row">
+      <div class="contact-label">GitHub</div><div class="contact-val">github.com/tomasgrillanini</div>
     </a>
   </div>
 </section>
 
 <footer>
-  <span>Tomás Grillanini · Analista de Datos · Buenos Aires</span>
-  <span>2025</span>
+  <span>Tomás Grillanini · Analista de Datos</span>
+  <span>2026</span>
 </footer>
-
-<script>
-  document.documentElement.classList.add("js-ready");
-  const reveals = document.querySelectorAll(".reveal");
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => {
-            e.target.classList.add("visible");
-        }, i * 50);
-        obs.unobserve(e.target);
-      }
-    });
-  });
-  reveals.forEach(el => obs.observe(el));
-</script>
 
 </body>
 </html>
